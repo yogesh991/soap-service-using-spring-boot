@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Yogesh
+Build-Jdk: 11.0.2
+Implementation-Title: soap-service-using-spring-boot
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.soap.example
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/soap-service-using-spring-boot
+Created-By: Maven Integration for Eclipse
+
