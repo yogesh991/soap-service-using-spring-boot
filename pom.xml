@@ -11,20 +11,25 @@
 	</parent>
 	<groupId>com.soap.example</groupId>
 	<artifactId>soap-service-using-spring-boot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>soap-service-using-spring-boot</name>
 	<description>Demo project for Spring Boot to Produce Soap Service</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -35,49 +40,76 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>wsdl4j</groupId>
-			<artifactId>wsdl4j</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			
-			 <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>jaxb2-maven-plugin</artifactId>
-    <version>2.4</version>
-    <executions>
-        <execution>
-            <id>example-schema</id>
-            <phase>generate-sources</phase>
-            <goals>
-                <goal>xjc</goal>
-            </goals>
-            <configuration>
-                <xsdPathWithinArtifact>xsd</xsdPathWithinArtifact>
-                <addGeneratedAnnotation>true</addGeneratedAnnotation>
-                <laxSchemaValidation>true</laxSchemaValidation>
-                <laxSchemaValidation>true</laxSchemaValidation>
-                <readOnly>true</readOnly>
-                <verbose>true</verbose>
-                <sources>
-                    <source>src/main/resources/ </source>
-                </sources>
-                <xjbSources>
-                    <xjbSource>src/main/resources/xjb</xjbSource>
-                </xjbSources>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
-			 
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<enableIntrospection>false</enableIntrospection>
+							<schemaFiles>*.xsd</schemaFiles>
+							<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
+							<outputDirectory>${project.basedir}/generated-resources</outputDirectory>
+							<extension>true</extension>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 
 </project>

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@xbssd.oh.dev.hum.aws.vz-connect.net:1521/xbssd
+    username: TCORE
+    password: "Tcore#2018"
+    type: com.zaxxer.hikari.HikariDataSource
+    schema: TCORE
+    hikari:
+      connection-timeout: 60000
+      minimum-idle: 1
+      maximum-pool-size: 5
+      idle-timeout: 60000
+      leak-detection-threshold: 30000

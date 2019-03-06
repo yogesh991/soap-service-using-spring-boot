@@ -1,0 +1,8 @@
+com\in28minutes\students\GetStudentDetailsResponse.class
+com\soap\example\Application.class
+com\in28minutes\students\GetStudentDetailsRequest.class
+com\in28minutes\students\StudentDetails.class
+com\in28minutes\students\ObjectFactory.class
+com\soap\example\endpoint\StudentDetailsEndpoint.class
+com\in28minutes\students\package-info.class
+com\soap\example\modal\Student.class

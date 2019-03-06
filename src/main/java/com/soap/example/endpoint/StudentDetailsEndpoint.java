@@ -5,6 +5,10 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.in28minutes.students.GetStudentDetailsRequest;
+import com.in28minutes.students.GetStudentDetailsResponse;
+import com.in28minutes.students.StudentDetails;
+
 @Endpoint
 public class StudentDetailsEndpoint {
 
